@@ -65,8 +65,8 @@ const projects: Project[] = [
     thumbnailImage: "/modern-finance-overview.png",
     timeline: "5 months (2024)",
     role: "Full-Stack Developer",
-    githubUrl: "https://github.com/karan79k/BehaviourBee",
-    liveUrl: "https://behaviorbee.vercel.app",
+    
+    liveUrl: "https://behaviourbee-624316799458.asia-south2.run.app/",
     relatedProjects: [
       {
         slug: "easyride-cab-booking",
@@ -108,8 +108,8 @@ const projects: Project[] = [
     thumbnailImage: "/mood-tracking-dashboard.png",
     timeline: "3 months (2024)",
     role: "Full-Stack Developer",
-    githubUrl: "https://github.com/karan79k/moodbuddy",
-    liveUrl: "https://moodbuddy.vercel.app",
+    
+    liveUrl: "https://moodbuddy.in",
     relatedProjects: [
       {
         slug: "behaviorbee-platform",
@@ -197,7 +197,7 @@ const projects: Project[] = [
     timeline: "2 months (2023)",
     role: "Frontend Developer",
     githubUrl: "https://github.com/karan79k/Restaurant-UI",
-    liveUrl: "https://tastyfood-ten.vercel.app/",
+    liveUrl: "https://tastyfood-ten.vercel.app",
     relatedProjects: [
       {
         slug: "dental-clinic",
@@ -244,85 +244,9 @@ const projects: Project[] = [
       },
     ],
   },
+
   {
     id: 6,
-    slug: "video-hub",
-    title: "Video Hub Platform",
-    category: "Video Streaming App",
-    shortDescription: "A video streaming and sharing platform with user-generated content and social features.",
-    description: [
-      "Video Hub is a comprehensive video streaming platform that allows users to upload, share, and discover video content across various categories and genres.",
-      "The platform includes social features such as user profiles, video recommendations, commenting systems, and playlist creation for enhanced user engagement.",
-      "Built with modern web technologies to ensure smooth video playback, efficient content delivery, and responsive design across all devices.",
-    ],
-    features: [
-      "Video upload and streaming capabilities",
-      "User profiles and authentication system",
-      "Video categorization and search functionality",
-      "Social features including comments and likes",
-      "Playlist creation and management",
-      "Responsive video player with quality controls",
-      "Content recommendation algorithm",
-    ],
-    technologies: ["React", "Node.js", "Video APIs", "Database Integration", "Responsive Design"],
-    coverImage: "/video-streaming-platform.png",
-    thumbnailImage: "/video-hub-dashboard.png",
-    timeline: "4 months (2024)",
-    role: "Full-Stack Developer",
-    githubUrl: "https://github.com/karan79k/video-hub",
-    relatedProjects: [
-      {
-        slug: "moodbuddy",
-        title: "MoodBuddy",
-        category: "Mental Health App",
-        image: "/mood-tracking-dashboard.png",
-      },
-    ],
-  },
-  {
-    id: 7,
-    slug: "intern-area",
-    title: "InternArea",
-    category: "TypeScript Application",
-    shortDescription:
-      "A platform for connecting students with internship opportunities and managing application processes.",
-    description: [
-      "InternArea is a comprehensive platform designed to streamline the internship application process for students and employers. Built with TypeScript for enhanced code reliability and maintainability.",
-      "The platform provides tools for students to discover relevant internship opportunities, manage applications, and track their progress through the selection process.",
-      "Employers can post internship listings, review applications, and communicate with potential interns through an integrated messaging system.",
-    ],
-    features: [
-      "Student profile creation with skills and experience tracking",
-      "Internship opportunity discovery and filtering system",
-      "Application management and status tracking",
-      "Employer dashboard for posting and managing internships",
-      "Integrated messaging system for communication",
-      "Resume builder and portfolio showcase",
-      "Analytics and reporting for both students and employers",
-    ],
-    technologies: ["TypeScript", "React", "Node.js", "Database Integration", "API Development"],
-    coverImage: "/ecommerce-redesign-cover.png",
-    thumbnailImage: "/modern-apparel-storefront.png",
-    timeline: "3 months (2025)",
-    role: "Frontend Developer",
-    githubUrl: "https://github.com/karan79k/InternArea",
-    relatedProjects: [
-      {
-        slug: "easyride-cab-booking",
-        title: "EasyRide Cab Booking",
-        category: "MERN Stack",
-        image: "/modern-finance-app.png",
-      },
-      {
-        slug: "behaviorbee-platform",
-        title: "BehaviourBee Platform",
-        category: "Next.js Application",
-        image: "/modern-finance-overview.png",
-      },
-    ],
-  },
-  {
-    id: 8,
     slug: "portfolio-3d",
     title: "3D Portfolio Website",
     category: "Creative Project",
