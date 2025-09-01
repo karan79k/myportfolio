@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "title": "Karan Saket | Software Developer",
+    "description": "Portfolio website showcasing software development work and projects"
+  },
+  "personal": {
+    "name": "Karan Saket",
+    "title": "Software Developer",
+    "location": "Gwalior, India",
+    "avatar": "/confident-professional.png",
+    "email": "work.karan7974@gmail.com",
+    "phone": "+91 7974868547",
+    "workingHours": "Monday - Friday, 9am - 6pm IST",
+    "availableForWork": true,
+    "badges": ["Full-Stack", "MERN Stack", "Next.js"],
+    "social": [
+      {
+        "platform": "GitHub",
+        "url": "https://github.com/karan79k",
+        "icon": "Github"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/in/karan-saket-2340b9240/",
+        "icon": "Linkedin"
+      },
+      {
+        "platform": "Instagram",
+        "url": "https://www.instagram.com/karannnn_.07/",
+        "icon": "Instagram"
+      }
+    ]
+  },
+  "about": {
+    "bio": "I am a passionate Software Developer and Problem Solver with expertise in full-stack development using modern technologies. I focus on building scalable web applications and solving complex problems with clean, efficient code.",
+  
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "Fluent",
+        "level": 85,
+        "flag": "🇺🇸"
+      },
+      {
+        "name": "Hindi",
+        "proficiency": "Native",
+        "level": 100,
+        "flag": "🇮🇳"
+      }
+    ],
+    "interests": ["Web Development", "Problem Solving", "Data Structures & Algorithms", "Cloud Computing", "AI/ML"]
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Experience",
+      "href": "#experience"
+    },
+    {
+      "label": "Credentials",
+      "href": "#credentials"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Software Developer",
+      "company": "Gravit InfoSystem Pvt Ltd.",
+      "period": "Mar 2025 - Sep 2025",
+      "description": "Developed interactive and responsive front-end components for AI Proctored Exam Portal and company website. Built modern web applications using React.js with focus on user experience and performance optimization.",
+      "achievements": [
+        "Built interactive student dashboards, practice tests, and admin panels for AI Proctored Exam Portal",
+        "Integrated APIs for authentication, event management, and real-time student participation",
+        "Developed a modern, fully responsive company website showcasing services and portfolio",
+        "Collaborated with team to ensure clean UI/UX design and smooth performance across devices"
+      ],
+      "technologies": ["React.js", "JavaScript", "API Integration", "Responsive Design", "UI/UX"]
+    }
+  ],
+  "credentials": {
+    "certifications": [
+      {
+        "issuer": "Nullclass Edtech Pvt Ltd",
+        "status": "Training Certificate",
+        "certificateUrl": "https://www.nullclass.com/certificates/67a234da1f939186c8f472dd",
+        "logo": "/generic-art-school-logo.png"
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.TECH in Computer Science",
+        "institution": "MITS Gwalior",
+        "year": "2021-2025",
+        "logo": "/generic-art-school-logo.png"
+      },
+      {
+        "degree": "Higher Secondary Education",
+        "institution": "Govt. Model H.S. School, Waidhan Singrauli, MP",
+        "year": "2020-2021",
+        "logo": "/calarts-logo.png"
+      }
+    ],
+    "skills": [
+      "Full-Stack Development",
+      "MERN Stack",
+      "API Integration",
+      "Responsive Design",
+      "Problem Solving",
+      "Data Structures & Algorithms",
+      "Database Design",
+      "Cloud Deployment"
+    ]
+  },
+  "technicalSkills": {
+    "development": [
+      { "name": "JavaScript", "icon": "Code" },
+      { "name": "C++", "icon": "Code2" },
+      { "name": "React.js", "icon": "Atom" },
+      { "name": "Next.js", "icon": "Zap" },
+      { "name": "Node.js", "icon": "Server" },
+      { "name": "Express.js", "icon": "Globe" },
+      { "name": "MongoDB", "icon": "Database" },
+      { "name": "SQL", "icon": "Database" }
+    ],
+    "design": [
+      { "name": "Material-UI", "icon": "Palette" },
+      { "name": "ShadCn", "icon": "Paintbrush" },
+      { "name": "Bootstrap5", "icon": "Layout" },
+      { "name": "Tailwind CSS", "icon": "Wind" },
+      { "name": "Responsive Design", "icon": "Smartphone" }
+    ],
+    "uxMethods": [
+      { "name": "API Integration", "icon": "Link" },
+      { "name": "Database Design", "icon": "Database" },
+      { "name": "Real-time Features", "icon": "Zap" },
+      { "name": "Authentication Systems", "icon": "Shield" },
+      { "name": "Performance Optimization", "icon": "Gauge" }
+    ],
+    "softSkills": [
+      { "name": "Problem Solving", "icon": "Lightbulb" },
+      { "name": "Team Collaboration", "icon": "Users" },
+      { "name": "Project Management", "icon": "FolderOpen" },
+      { "name": "Communication", "icon": "MessageCircle" },
+      { "name": "Adaptability", "icon": "RefreshCw" }
+    ]
+  }
+}
+
