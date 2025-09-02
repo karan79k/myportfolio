@@ -11,11 +11,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { SendIcon, Loader2, MessageCircle } from "lucide-react"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 
-// Define the form schema with validation rules
+// 1. Add email to the validation schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  subject: z.string().min(5, { message: "Subject must be at least 5 characters" }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  subject: z.string().min(5, { message: "Subject must be at least 5 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 })
 
 type FormValues = z.infer<typeof formSchema>
@@ -24,17 +25,17 @@ export function ContactFormDialog() {
   const [isOpen, setIsOpen] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  // Initialize the form with react-hook-form and zod validation
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
+    // 2. Add email to the default form values
     defaultValues: {
       name: "",
+      email: "",
       subject: "",
       message: "",
     },
   })
 
-  // Handle form submission
   async function onSubmit(data: FormValues) {
     try {
       const response = await fetch("/api/contact", {
@@ -47,9 +48,9 @@ export function ContactFormDialog() {
 
       if (response.ok) {
         setIsSubmitted(true)
-        form.reset()
       } else {
         console.error("Failed to send message")
+        // Optionally, add state to show an error message to the user
       }
     } catch (error) {
       console.error("Error sending message:", error)
@@ -58,8 +59,11 @@ export function ContactFormDialog() {
 
   const handleClose = () => {
     setIsOpen(false)
-    setIsSubmitted(false)
-    form.reset()
+    // A slight delay to prevent content flicker before dialog closes
+    setTimeout(() => {
+      setIsSubmitted(false)
+      form.reset()
+    }, 300)
   }
 
   return (
@@ -73,7 +77,7 @@ export function ContactFormDialog() {
           Let's Talk
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md bg-zinc-900 border-zinc-800">
+      <DialogContent className="sm:max-w-md bg-zinc-900 border-zinc-800" onInteractOutside={handleClose}>
         <DialogHeader>
           <DialogTitle className="text-xl font-semibold text-center">Get In Touch</DialogTitle>
         </DialogHeader>
@@ -103,6 +107,26 @@ export function ContactFormDialog() {
                     <FormControl>
                       <Input
                         placeholder="Your name"
+                        className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-xs text-red-500" />
+                  </FormItem>
+                )}
+              />
+
+              {/* 3. Add the Email input field JSX */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-zinc-400">Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="email"
+                        placeholder="your.email@example.com"
                         className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500"
                         {...field}
                       />

@@ -64,7 +64,7 @@ const SkillTagComponent = ({ children, icon }: { children: React.ReactNode; icon
   const IconComponent = icon ? iconMap[icon as keyof typeof iconMap] : null
 
   return (
-    <div className="px-3 py-1.5 bg-zinc-800 rounded-full text-xs font-medium text-zinc-400 flex items-center gap-1.5">
+    <div className="px-3 py-1.5 bg-zinc-800 rounded-full text-xs font-medium text-zinc-400 flex items-center gap-1.5 transition-all duration-200 ease-in-out hover:bg-zinc-700 hover:text-cyan-400 hover:scale-105 cursor-pointer">
       {IconComponent && <IconComponent className="w-3 h-3" />}
       {children}
     </div>

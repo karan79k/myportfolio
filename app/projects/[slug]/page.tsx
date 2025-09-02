@@ -150,7 +150,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
           {/* Project Sidebar */}
           <div className="space-y-4 sm:space-y-6">
-            <AnimatedSection animation="slide-left" delay={100}>
+            {/* <AnimatedSection animation="slide-left" delay={100}>
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Details</h2>
@@ -173,7 +173,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 </CardContent>
               </Card>
-            </AnimatedSection>
+            </AnimatedSection> */}
 
             {/* Next Projects */}
             <AnimatedSection animation="slide-left" delay={200}>

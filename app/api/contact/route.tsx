@@ -1,13 +1,21 @@
 import { type NextRequest, NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+import * as nodemailer from "nodemailer"
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, subject, message } = await request.json()
+    const { name, email, subject, message } = await request.json()
 
-    const transporter = nodemailer.createTransporter({
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("Email environment variables not set.")
+      return NextResponse.json(
+        { success: false, message: "Server configuration error." },
+        { status: 500 }
+      )
+    }
+
+    const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
-      port: Number.parseInt(process.env.SMTP_PORT || "587"),
+      port: parseInt(process.env.SMTP_PORT || "587", 10),
       secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
@@ -16,37 +24,75 @@ export async function POST(request: NextRequest) {
     })
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to yourself
-      subject: `Portfolio Contact: ${subject}`,
+      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`, // Shows "Portfolio Contact" as the sender name
+      to: process.env.EMAIL_USER,
+      replyTo: email, // IMPORTANT: This allows you to reply directly to the sender
+      subject: `New Message from ${name}: ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #0891b2;">New Contact Form Submission</h2>
-          <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
-            <p><strong>Message:</strong></p>
-            <div style="background-color: white; padding: 15px; border-radius: 4px; margin-top: 10px;">
-              ${message.replace(/\n/g, "<br>")}
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f7; color: #333; margin: 0; padding: 20px; }
+                .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; }
+                .header { background: linear-gradient(90deg, #0891b2, #0d9488); color: white; padding: 24px; text-align: center; }
+                .header h1 { margin: 0; font-size: 24px; }
+                .content { padding: 24px; }
+                .info-grid { display: grid; grid-template-columns: 100px 1fr; gap: 8px 16px; margin-bottom: 24px; font-size: 15px; }
+                .info-grid strong { color: #555; }
+                .message-box { background-color: #f8f9fa; border-left: 4px solid #0891b2; padding: 16px; border-radius: 6px; white-space: pre-wrap; word-wrap: break-word; font-size: 15px; line-height: 1.6; }
+                .footer { text-align: center; padding: 16px; font-size: 12px; color: #888; background-color: #f8f9fa; }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>New Portfolio Message</h1>
+                </div>
+                <div class="content">
+                    <div class="info-grid">
+                        <strong>From:</strong>
+                        <span>${name}</span>
+                        <strong>Email:</strong>
+                        <span><a href="mailto:${email}">${email}</a></span>
+                        <strong>Subject:</strong>
+                        <span>${subject}</span>
+                    </div>
+                    <p style="margin-bottom: 12px; font-size: 16px; color: #333; font-weight: 600;">Message:</p>
+                    <div class="message-box">
+                        ${message}
+                    </div>
+                </div>
+                <div class="footer">
+                    Sent from your portfolio contact form.
+                </div>
             </div>
-          </div>
-          <p style="color: #666; font-size: 12px;">This message was sent from your portfolio contact form.</p>
-        </div>
+        </body>
+        </html>
       `,
       text: `
-        New Contact Form Submission
-        
-        Name: ${name}
-        Subject: ${subject}
-        Message: ${message}
+        You have received a new message from your portfolio contact form.\n\n
+        From: ${name}\n
+        Email: ${email}\n
+        Subject: ${subject}\n\n
+        Message:\n
+        ${message}
       `,
     }
 
     await transporter.sendMail(mailOptions)
 
-    return NextResponse.json({ success: true, message: "Email sent successfully" })
+    return NextResponse.json({
+      success: true,
+      message: "Email sent successfully",
+    })
   } catch (error) {
     console.error("Error sending email:", error)
-    return NextResponse.json({ success: false, message: "Failed to send email" }, { status: 500 })
+    return NextResponse.json(
+      { success: false, message: "Failed to send email" },
+      { status: 500 }
+    )
   }
 }
