@@ -157,12 +157,7 @@ const projects: Project[] = [
         category: "Next.js Application",
         image: "/modern-finance-overview.png",
       },
-      {
-        slug: "intern-area",
-        title: "InternArea",
-        category: "TypeScript Application",
-        image: "/modern-apparel-storefront.png",
-      },
+      
     ],
   },
   {
@@ -265,14 +260,9 @@ const projects: Project[] = [
     thumbnailImage: "/3d-portfolio-thumbnail.png",
     timeline: "2 months (2025)",
     role: "Frontend Developer & Designer",
-    githubUrl: "https://github.com/karan79k/Portfolio",
+    liveUrl: "https://karanportfolio-blush.vercel.app/",
     relatedProjects: [
-      {
-        slug: "todoist-ui",
-        title: "Todoist UI Clone",
-        category: "UI/UX Project",
-        image: "/modern-apparel-storefront.png",
-      },
+      
       {
         slug: "easyride-cab-booking",
         title: "EasyRide Cab Booking",
